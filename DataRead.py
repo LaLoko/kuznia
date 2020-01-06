@@ -1,3 +1,8 @@
-input = open("diabetic_data_initial")
+file = open("diabetic_data_initial.csv",'r')
 
-data = df.from_items(input)
+header = file.readline().split(",")
+data = []
+
+for line in file:
+    line.split(',')
+    data.append(line.split(','))
