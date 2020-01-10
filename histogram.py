@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 data=pd.read_csv("C:/Users/Krzysztof/PycharmProjects/kuźnia_zad1/diabetic_data_initial.csv")
 # data=pd.read_csv("C:/Users/Krzysztof/PycharmProjects/kuźnia_zad1/diabetic_data_initial.csv", usecols=["race", "gender", "age", "weight", "readmitted"])
 
-#usuwanie znakow zapytania
+#zamiana nieznanych danych na nan
 col = data.columns
 data[col] = data[col].replace({'?':np.nan})
 
