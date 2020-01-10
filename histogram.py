@@ -15,8 +15,12 @@ data[col] = data[col].replace({'?':np.nan})
 data['diabetesMed']=data['diabetesMed'].map(dict(Yes=1, No=0))
 data['change']=data['change'].map(dict(Ch=1, No=0))
 
-#rysowanie histogramu wybranej kolumny
-plt.hist(data['race'].value_counts())
-plt.show()
+#rysowanie histogramow
+select_col = ["race", "gender", "age", "weight", "readmitted"]
 
-#niedokonczony histogram, trzeba zautomatyzowac wyswietlane dane, aby w zaleznosci od kolumny wyswietlamy odpowiednie nazwy/wartosci
+fig, axs = plt.subplots(1,(len(select_col)))
+axs = axs.ravel()
+for i, element in enumerate(data[select_col]):
+    data[element].value_counts().plot(kind="bar", ax=axs[i]).set_title(element)
+
+plt.show()
