@@ -24,3 +24,11 @@ for i, element in enumerate(data[select_col]):
     data[element].value_counts().plot(kind="bar", ax=axs[i]).set_title(element)
 
 plt.show()
+
+#rysowanie rozrzutu
+#rozrzut ma pokazywać ilosć kobiet/mężczyzn w zależności od rasy
+
+girls_grades = data[data['gender'].map(lambda item: 'Female' in item)]
+girls_race = girls_grades['race'].value_counts()
+boys_grades = data[data['gender'].map(lambda item: 'Male' in item)]
+boy_race = boys_grades['race'].value_counts()
