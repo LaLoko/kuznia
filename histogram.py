@@ -22,7 +22,10 @@ fig, axs = plt.subplots(1,(len(select_col)))
 axs = axs.ravel()
 for i, element in enumerate(data[select_col]):
     data[element].value_counts().plot(kind="bar", ax=axs[i]).set_title(element)
+plt.show()
 
+#pojedynczy histogram
+pd.value_counts(data['race']).plot(kind="bar")
 plt.show()
 
 #rysowanie rozrzutu
