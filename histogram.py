@@ -31,14 +31,17 @@ plt.show()
 #rysowanie rozrzutu
 #rozrzut ma pokazywać ilosć kobiet/mężczyzn w zależności od rasy
 
-girls_grades = data[data['gender'].map(lambda item: 'Female' in item)]
-girls_race = girls_grades['race'].value_counts().tolist()
+def scatter_plot(x, y):
+    girls_grades = data[data[y].map(lambda item: 'Female' in item)]
+    girls_race = girls_grades[x].value_counts().tolist()
 
-boys_grades = data[data['gender'].map(lambda item: 'Male' in item)]
-boys_race = boys_grades['race'].value_counts().tolist()
+    boys_grades = data[data[y].map(lambda item: 'Male' in item)]
+    boys_race = boys_grades[x].value_counts().tolist()
 
-race = girls_grades['race'].value_counts().keys().tolist()
+    race = girls_grades[x].value_counts().keys().tolist()
 
-plt.scatter(race, girls_race, marker='o')
-plt.scatter(race, boys_race, marker='o')
-plt.show()
+    plt.scatter(race, girls_race, marker='o')
+    plt.scatter(race, boys_race, marker='o')
+    plt.show()
+
+scatter_plot('race', 'gender')
