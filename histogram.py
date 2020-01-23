@@ -32,28 +32,13 @@ plt.show()
 #rozrzut ma pokazywać ilosć kobiet/mężczyzn w zależności od rasy
 
 girls_grades = data[data['gender'].map(lambda item: 'Female' in item)]
-girls_race = girls_grades['race'].value_counts()
+girls_race = girls_grades['race'].value_counts().tolist()
+
 boys_grades = data[data['gender'].map(lambda item: 'Male' in item)]
-boy_race = boys_grades['race'].value_counts()
+boys_race = boys_grades['race'].value_counts().tolist()
 
-#do ogarnięcia
-# plt.figure(figsize=(15,6))
-# plt.plot('age', 'time_in_hospital', data=data, linestyle='none', marker='o')
-# plt.xlabel('age', fontsize='12', horizontalalignment='center')
-# plt.ylabel('time_in_hospital', fontsize='12', horizontalalignment='center')
-# plt.show()
+race = girls_grades['race'].value_counts().keys().tolist()
 
-# palette1 = ['blue','orange','green','red','violet',]
-# fig1 = sns.lmplot(x="age", y="time_in_hospital", data=data, fit_reg=False, legend=True, height=6, aspect=2.5, hue='race', palette=palette1)
-# fig1.set_axis_labels("age", "time_in_hospital")
-# fig1.set(title='title');
-#
-# plt.show()
-
-# sns.catplot(data=data, x='age', y='time_in_hospital', aspect=2.5)
-# plt.xticks(rotation=-90)
-# plt.xlabel("")
-# plt.show()
-
-# plt.scatter(data['age'], data['time_in_hospital'])
-# plt.show()
+plt.scatter(race, girls_race, marker='o')
+plt.scatter(race, boys_race, marker='o')
+plt.show()
