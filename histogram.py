@@ -45,3 +45,40 @@ def scatter_plot(x, y):
     plt.show()
 
 scatter_plot('race', 'gender')
+
+
+# usunięcie nieznanych danych
+data_hist = data_hist[data_hist.gender != 'Unknown/Invalid']
+data_hist = data_hist[data_hist.race != '?']
+
+# histogram
+numer = int(input("Numer kolumny: "))
+kolumna = data_hist[headers[numer]]
+
+freqs = Counter(kolumna)
+xvals = range(len(freqs.values()))
+plt.bar(xvals, freqs.values(), color='#37777D')
+plt.xticks(xvals, freqs.keys())
+plt.suptitle('Histogram dla zmiennej ' + headers[numer])
+plt.show()
+
+
+# krzysiowy bardziej uniwersalny scatter, nadal nie jest idealny ale lepiej nie umiem
+
+def scatter_plot(x, y):
+    unique = np.unique(data_hist[y])
+    race = data_hist[x].value_counts().keys().tolist()
+
+    for i in range(len(unique)):
+        temp = data_hist[data_hist[y].map(lambda item: unique[i] in item)]
+        temp1 = temp[x].value_counts().tolist()
+        plt.scatter(race, temp1, marker='o', s=[np.sqrt(i) * 15 for i in temp1])
+
+    plt.legend(unique)
+    plt.title("Scatter plot dla zmiennych " + x + " oraz " + y)
+    plt.xlabel(x)
+    plt.ylabel(y)
+    plt.show()
+
+
+scatter_plot('age', 'race')
