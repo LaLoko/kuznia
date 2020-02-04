@@ -10,10 +10,9 @@ data = pd.read_csv("diabetic_data_initial.csv")
 df = pd.DataFrame(data)
 
 pd.set_option('display.max_columns',50)#dzięki temu wyświetla wszystkie kolumny
-col = df.columns
-df[col] = df[col].replace({'?': np.nan})
-
 col_names_list = df.columns
+df[col_names_list] = df[col_names_list].replace({'?': np.nan})
+
 stats = []
 
 #tabela NaNów w kolumnach posortowanych rosnąco
@@ -29,7 +28,7 @@ nans.sort()
 #zapis danych do pliku
 plik = open('wyniki.txt','w')
 plik.write('COLUMN STATISTICS\n\n\n')
-plik.write(str(df.describe()))
+plik.write(str(df.describe().round()))
 plik.write('\n\nINFORMATION ABOUT COLUMNS VALUES\n\n')
 
 for i in stats:
