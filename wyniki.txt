@@ -1,0 +1,328 @@
+COLUMN STATISTICS
+
+
+       encounter_id   patient_nbr  admission_type_id  \
+count  1.017660e+05  1.017660e+05      101766.000000   
+mean   1.652016e+08  5.433040e+07           2.024006   
+std    1.026403e+08  3.869636e+07           1.445403   
+min    1.252200e+04  1.350000e+02           1.000000   
+25%    8.496119e+07  2.341322e+07           1.000000   
+50%    1.523890e+08  4.550514e+07           1.000000   
+75%    2.302709e+08  8.754595e+07           3.000000   
+max    4.438672e+08  1.895026e+08           8.000000   
+
+       discharge_disposition_id  admission_source_id  time_in_hospital  \
+count             101766.000000        101766.000000     101766.000000   
+mean                   3.715642             5.754437          4.395987   
+std                    5.280166             4.064081          2.985108   
+min                    1.000000             1.000000          1.000000   
+25%                    1.000000             1.000000          2.000000   
+50%                    1.000000             7.000000          4.000000   
+75%                    4.000000             7.000000          6.000000   
+max                   28.000000            25.000000         14.000000   
+
+       num_lab_procedures  num_procedures  num_medications  number_outpatient  \
+count       101766.000000   101766.000000    101766.000000      101766.000000   
+mean            43.095641        1.339730        16.021844           0.369357   
+std             19.674362        1.705807         8.127566           1.267265   
+min              1.000000        0.000000         1.000000           0.000000   
+25%             31.000000        0.000000        10.000000           0.000000   
+50%             44.000000        1.000000        15.000000           0.000000   
+75%             57.000000        2.000000        20.000000           0.000000   
+max            132.000000        6.000000        81.000000          42.000000   
+
+       number_emergency  number_inpatient  number_diagnoses  
+count     101766.000000     101766.000000     101766.000000  
+mean           0.197836          0.635566          7.422607  
+std            0.930472          1.262863          1.933600  
+min            0.000000          0.000000          1.000000  
+25%            0.000000          0.000000          6.000000  
+50%            0.000000          0.000000          8.000000  
+75%            0.000000          1.000000          9.000000  
+max           76.000000         21.000000         16.000000  
+
+INFORMATION ABOUT COLUMNS VALUES
+
+Name: encounter_id
+number of values :61
+number of uniques:61
+
+Name: patient_nbr
+number of values :61
+number of uniques:61
+
+Name: race
+Caucasian          76099
+AfricanAmerican    19210
+Hispanic            2037
+Other               1506
+Asian                641
+
+Name: gender
+Female             54708
+Male               47055
+Unknown/Invalid        3
+
+Name: age
+[70-80)     26068
+[60-70)     22483
+[50-60)     17256
+[80-90)     17197
+[40-50)      9685
+[30-40)      3775
+[90-100)     2793
+[20-30)      1657
+[10-20)       691
+[0-10)        161
+
+Name: weight
+[75-100)     1336
+[50-75)       897
+[100-125)     625
+[125-150)     145
+[25-50)        97
+[0-25)         48
+[150-175)      35
+[175-200)      11
+>200            3
+
+Name: admission_type_id
+1    53990
+3    18869
+2    18480
+6     5291
+5     4785
+8      320
+7       21
+4       10
+
+Name: discharge_disposition_id
+number of values :26
+number of uniques:26
+
+Name: admission_source_id
+number of values :17
+number of uniques:17
+
+Name: time_in_hospital
+number of values :14
+number of uniques:14
+
+Name: payer_code
+number of values :17
+number of uniques:17
+
+Name: medical_specialty
+number of values :61
+number of uniques:61
+
+Name: num_lab_procedures
+number of values :61
+number of uniques:61
+
+Name: num_procedures
+0    46652
+1    20742
+2    12717
+3     9443
+6     4954
+4     4180
+5     3078
+
+Name: num_medications
+number of values :61
+number of uniques:61
+
+Name: number_outpatient
+number of values :39
+number of uniques:39
+
+Name: number_emergency
+number of values :33
+number of uniques:33
+
+Name: number_inpatient
+number of values :21
+number of uniques:21
+
+Name: diag_1
+number of values :61
+number of uniques:61
+
+Name: diag_2
+number of values :61
+number of uniques:61
+
+Name: diag_3
+number of values :61
+number of uniques:61
+
+Name: number_diagnoses
+number of values :16
+number of uniques:16
+
+Name: max_glu_serum
+None    96420
+Norm     2597
+>200     1485
+>300     1264
+
+Name: A1Cresult
+None    84748
+>8       8216
+Norm     4990
+>7       3812
+
+Name: metformin
+No        81778
+Steady    18346
+Up         1067
+Down        575
+
+Name: repaglinide
+No        100227
+Steady      1384
+Up           110
+Down          45
+
+Name: nateglinide
+No        101063
+Steady       668
+Up            24
+Down          11
+
+Name: chlorpropamide
+No        101680
+Steady        79
+Up             6
+Down           1
+
+Name: glimepiride
+No        96575
+Steady     4670
+Up          327
+Down        194
+
+Name: acetohexamide
+No        101765
+Steady         1
+
+Name: glipizide
+No        89080
+Steady    11356
+Up          770
+Down        560
+
+Name: glyburide
+No        91116
+Steady     9274
+Up          812
+Down        564
+
+Name: tolbutamide
+No        101743
+Steady        23
+
+Name: pioglitazone
+No        94438
+Steady     6976
+Up          234
+Down        118
+
+Name: rosiglitazone
+No        95401
+Steady     6100
+Up          178
+Down         87
+
+Name: acarbose
+No        101458
+Steady       295
+Up            10
+Down           3
+
+Name: miglitol
+No        101728
+Steady        31
+Down           5
+Up             2
+
+Name: troglitazone
+No        101763
+Steady         3
+
+Name: tolazamide
+No        101727
+Steady        38
+Up             1
+
+Name: examide
+No    101766
+
+Name: citoglipton
+No    101766
+
+Name: insulin
+No        47383
+Steady    30849
+Down      12218
+Up        11316
+
+Name: glyburide-metformin
+No        101060
+Steady       692
+Up             8
+Down           6
+
+Name: glipizide-metformin
+No        101753
+Steady        13
+
+Name: glimepiride-pioglitazone
+No        101765
+Steady         1
+
+Name: metformin-rosiglitazone
+No        101764
+Steady         2
+
+Name: metformin-pioglitazone
+No        101765
+Steady         1
+
+Name: change
+No    54755
+Ch    47011
+
+Name: diabetesMed
+Yes    78363
+No     23403
+
+Name: readmitted
+NO     54864
+>30    35545
+<30    11357
+
+INFORMATION ABOUT NaN VALUES
+
+column name :diag_1
+percent of NaNs : 0.02%
+
+column name :diag_2
+percent of NaNs : 0.35%
+
+column name :diag_3
+percent of NaNs : 1.4%
+
+column name :medical_specialty
+percent of NaNs : 49.08%
+
+column name :payer_code
+percent of NaNs : 39.56%
+
+column name :race
+percent of NaNs : 2.23%
+
+column name :weight
+percent of NaNs : 96.86%
+
