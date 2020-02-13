@@ -28,6 +28,15 @@ plt.show()
 pd.value_counts(data['race']).plot(kind="bar")
 plt.show()
 
+#scatter ogólny
+# przykład z neta
+# df = pd.DataFrame(np.random.rand(50, 4), columns=['a', 'b', 'c', 'd'])
+# df.plot.scatter(x='a', y='b');
+
+df = pd.DataFrame(data)
+df.plot.scatter(x='admission_type_id', y='discharge_disposition_id')
+plt.show()
+
 #rysowanie rozrzutu
 #rozrzut ma pokazywać ilosć kobiet/mężczyzn w zależności od rasy
 
