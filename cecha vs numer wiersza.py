@@ -8,12 +8,20 @@ import numpy as np
 import pandas as pd
 import time
 from pandas.api.types import is_numeric_dtype
+import matplotlib.pyplot as plt
 
 
 # In[2]:
 
 
 df = pd.read_csv("diabetic_data.csv",sep=',', header=0, error_bad_lines=False, low_memory=False, decimal='.')
+#ograniczenie liczby wierszy do co setnego
+df = df[df.index % 100 == 0]
+
+
+# In[3]:
+
+
 df
 
 
@@ -22,15 +30,22 @@ df
 
 def string_to_value(column):
     dict = {}
-    k = 0
+    k = 1
     unique = df[column].unique()
+    unique = sorted(set(unique))
     for unique_value in unique:
-        dict[unique_value] = k
-        k+=1
+        if (unique_value == "nan" or unique_value == "NaN" or unique_value == "NULL" or unique_value == "?" ):
+            #nadanie skrajnej liczby latwo widocznej do wyznaczania nulli na wykresie
+            dict[unique_value] = 0
+        else:
+            dict[unique_value] = k
+            k+=1
+    print(dict)
     return dict
 
 
-# In[17]:
+# In[5]:
+
 
 def plot_column(df,column):
     if (is_numeric_dtype(df[column]) == True):
@@ -45,14 +60,8 @@ def plot_column(df,column):
         plt.show(block=True)
 
 
-# In[18]:
+# In[6]:
 
-i = input("podaj numer kolumny: ")
-i = int(i)
-colnames = df.columns.get_values()
-colnames.tolist()
-column_name = colnames[i]
-plot_column(df,column_name)
 
 def plot_everything(df):
     i=0
@@ -63,7 +72,26 @@ def plot_everything(df):
         plot_column(df,column_name)
         i+=1
 
-#plot_everything(df)
+
+# In[17]:
+
+
+plot_everything(df)
+
+
+# In[8]:
+
+
+plot_column(df,'weight')
+
+
+# In[14]:
+
+
+plot_column(df,'gender')
+
+
+# In[ ]:
 
 
 
