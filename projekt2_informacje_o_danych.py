@@ -1,10 +1,5 @@
 import pandas as pd
 import numpy as np
-import string
-from tabulate import tabulate
-import matplotlib.pyplot as plt
-from collections import Counter
-from tkinter import *
 
 #rysowanie ramki ascii
 def box_lines(lines, width):
@@ -20,7 +15,6 @@ def split_msg(msg, width):
     return [item for sublist in split_lines for item in sublist] # flatten
 def border_msg(msg, width):
     return(box_lines(split_msg(msg, width), width))
-
 
 # import danych do DF
 data = pd.read_csv("diabetic_data_initial.csv")
@@ -100,11 +94,4 @@ for i in stats:
             if head.split()[1] == i[0]:
                 plik.write('\n'+str(i[1])+' % of NaNs\n')
     c_nr += 1
-
-# plik.write("INFORMATION ABOUT NaN VALUES\n\n")
-# for i in nans:
-#     plik.write('column name :' + i[0] + '\n')
-#     plik.write('percent of NaNs : ' + str(i[1]) + '%\n\n')
-
-
 
