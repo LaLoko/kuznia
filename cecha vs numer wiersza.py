@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[53]:
 
 
 import numpy as np
@@ -11,21 +11,21 @@ from pandas.api.types import is_numeric_dtype
 import matplotlib.pyplot as plt
 
 
-# In[2]:
+# In[54]:
 
 
 df = pd.read_csv("diabetic_data.csv",sep=',', header=0, error_bad_lines=False, low_memory=False, decimal='.')
 #ograniczenie liczby wierszy do co setnego
-df = df[df.index % 100 == 0]
+df1 = df[df.index % 100 == 0]
 
 
-# In[3]:
+# In[60]:
 
 
-df
+srednia = True
 
 
-# In[16]:
+# In[61]:
 
 
 def string_to_value(column):
@@ -44,23 +44,35 @@ def string_to_value(column):
     return dict
 
 
-# In[5]:
+# In[65]:
 
 
 def plot_column(df,column):
     if (is_numeric_dtype(df[column]) == True):
+        global srednia
+        if(srednia==True):
+            dfR = df.groupby(df.index // 100).mean()
+            dfR.index = dfR.index*100
+        else:
+            dfR = df1
         plt.interactive(True)
-        df.plot(y=column, use_index=True)
+        dfR.plot(y=column, use_index=True)
         plt.show(block=True)
     else:
         dict = string_to_value(column)
-        df = df.replace({column: dict})
+        if(srednia==True):
+            dfM = df.replace({column: dict})
+            dfR = dfM.groupby(df.index // 100).mean()
+            dfR.index = dfR.index*100
+        else:
+            dfM = df1.replace({column: dict})
+            dfR = dfM
         plt.interactive(True)
-        df.plot(y=column, use_index=True)
+        dfR.plot(y=column, use_index=True)
         plt.show(block=True)
 
 
-# In[6]:
+# In[66]:
 
 
 def plot_everything(df):
@@ -73,22 +85,19 @@ def plot_everything(df):
         i+=1
 
 
-# In[17]:
+# In[67]:
+
+
+plot_column(df,"race")
+
+
+# In[ ]:
 
 
 plot_everything(df)
 
 
-# In[8]:
-
-
-plot_column(df,'weight')
-
-
-# In[14]:
-
-
-plot_column(df,'gender')
+# In[ ]:
 
 
 
